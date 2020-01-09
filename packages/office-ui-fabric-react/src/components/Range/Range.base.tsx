@@ -174,10 +174,9 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
     }
     const value = this.state.value!;
     const [start, stop] = value;
-    const { currentValue, renderedValue, stepLength } = this._newRangePosition(this._rangeLine.current.getBoundingClientRect(), event);
+    const { currentValue, renderedValue } = this._newRangePosition(this._rangeLine.current.getBoundingClientRect(), event);
     const startDistance = Math.abs(start - currentValue);
     const stopDistance = Math.abs(stop - currentValue);
-    console.log(renderedValue, stepLength);
     const onMouseMoveOrTouchMove =
       startDistance > stopDistance || (startDistance === stopDistance && renderedValue > stop)
         ? this._onMouseMoveOrTouchMoveStop
@@ -226,7 +225,7 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
   private _newRangePosition = (
     rangePositionRect: ClientRect,
     event: MouseEvent | TouchEvent
-  ): { renderedValue: number; currentValue: number; stepLength: number } => {
+  ): { renderedValue: number; currentValue: number } => {
     const { max, min, step } = this.props;
     const steps: number = (max! - min!) / step!;
     const rangeLength: number = !this.props.vertical ? rangePositionRect.width : rangePositionRect.height;
@@ -258,8 +257,7 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
 
     return {
       renderedValue,
-      currentValue,
-      stepLength
+      currentValue
     };
   };
 
