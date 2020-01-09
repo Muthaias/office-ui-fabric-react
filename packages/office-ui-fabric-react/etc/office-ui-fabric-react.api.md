@@ -6360,6 +6360,68 @@ export interface IProgressIndicatorStyles {
 }
 
 // @public (undocumented)
+export interface IRange {
+    // (undocumented)
+    focus: () => void;
+    // (undocumented)
+    value: RangeValue | undefined;
+}
+
+// @public (undocumented)
+export interface IRangeProps extends React.ClassAttributes<RangeBase> {
+    ariaLabel?: string;
+    ariaValueText?: (value: RangeValue) => string;
+    buttonProps?: React.HTMLAttributes<HTMLButtonElement>;
+    className?: string;
+    componentRef?: IRefObject<IRange>;
+    defaultValue?: RangeValue;
+    disabled?: boolean;
+    label?: string;
+    max?: number;
+    min?: number;
+    onChange?: (value: RangeValue) => void;
+    onChanged?: (event: MouseEvent | TouchEvent | KeyboardEvent, value: RangeValue) => void;
+    showValue?: boolean;
+    snapToStep?: boolean;
+    step?: number;
+    styles?: IStyleFunctionOrObject<IRangeStyleProps, IRangeStyles>;
+    theme?: ITheme;
+    value?: RangeValue;
+    valueFormat?: (value: RangeValue) => string;
+    vertical?: boolean;
+}
+
+// @public (undocumented)
+export interface IRangeState {
+    // (undocumented)
+    renderedValue?: RangeValue;
+    // (undocumented)
+    value?: RangeValue;
+}
+
+// @public (undocumented)
+export type IRangeStyleProps = Required<Pick<IRangeProps, 'theme'>> & Pick<IRangeProps, 'className' | 'disabled' | 'vertical'> & {
+    showTransitions?: boolean;
+    showValue?: boolean;
+    titleLabelClassName?: string;
+};
+
+// @public (undocumented)
+export interface IRangeStyles {
+    activeSection: IStyle;
+    container: IStyle;
+    inactiveSection: IStyle;
+    line: IStyle;
+    lineContainer: IStyle;
+    root: IStyle;
+    slideBox: IStyle;
+    thumb: IStyle;
+    titleLabel: IStyle;
+    valueLabel: IStyle;
+    zeroTick: IStyle;
+}
+
+// @public (undocumented)
 export interface IRating {
 }
 
@@ -8604,6 +8666,28 @@ export class ProgressIndicatorBase extends React.Component<IProgressIndicatorPro
     // (undocumented)
     render(): JSX.Element;
 }
+
+// @public (undocumented)
+export const Range: React.StatelessComponent<IRangeProps>;
+
+// @public (undocumented)
+export const RANGE_ONKEYDOWN_TIMEOUT_DURATION = 1000;
+
+// @public (undocumented)
+export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implements IRange {
+    constructor(props: IRangeProps);
+    // (undocumented)
+    static defaultProps: IRangeProps;
+    // (undocumented)
+    focus(): void;
+    // (undocumented)
+    render(): React.ReactElement<{}>;
+    // (undocumented)
+    readonly value: RangeValue | undefined;
+}
+
+// @public (undocumented)
+export type RangeValue = [number, number];
 
 // @public (undocumented)
 export const Rating: React.StatelessComponent<IRatingProps>;

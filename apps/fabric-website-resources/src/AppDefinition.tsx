@@ -365,6 +365,12 @@ export const AppDefinition: IAppDefinition = {
           url: '#/examples/progressindicator'
         },
         {
+          component: require<any>('./components/pages/RangePage').RangePage,
+          key: 'Range',
+          name: 'Range',
+          url: '#/examples/range'
+        },
+        {
           component: require<any>('./components/pages/RatingPage').RatingPage,
           key: 'Rating',
           name: 'Rating',

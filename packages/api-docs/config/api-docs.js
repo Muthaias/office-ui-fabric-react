@@ -67,6 +67,7 @@ module.exports = {
       'Popup',
       'PositioningContainer',
       'ProgressIndicator',
+      'Range',
       'Rating',
       'ResizeGroup',
       'SelectedPeopleList',

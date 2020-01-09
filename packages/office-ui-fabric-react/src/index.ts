@@ -66,6 +66,7 @@ export * from './Separator';
 export * from './Shimmer';
 export * from './ShimmeredDetailsList';
 export * from './Slider';
+export * from './Range';
 export * from './SpinButton';
 export * from './Spinner';
 export * from './Stack';
