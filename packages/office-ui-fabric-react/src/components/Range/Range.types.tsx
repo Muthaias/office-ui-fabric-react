@@ -127,7 +127,7 @@ export interface IRangeProps extends React.ClassAttributes<RangeBase> {
   /**
    * Optional function to format the range value.
    */
-  valueFormat?: (value: RangeValue) => string;
+  valueFormat?: (edgeValue: number) => string;
 }
 
 /**

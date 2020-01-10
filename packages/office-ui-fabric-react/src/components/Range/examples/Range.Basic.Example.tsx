@@ -38,7 +38,7 @@ export class RangeBasicExample extends React.Component<{}, IRangeBasicExampleSta
           label="Example with formatted value"
           max={100}
           ariaValueText={([start, stop]: RangeValue) => `${start} to ${stop} percent`}
-          valueFormat={([start, stop]: RangeValue) => `${start}% to ${stop}%`}
+          valueFormat={(edgeValue: number) => `${edgeValue}%`}
           showValue={true}
         />
         <Range label="Origin from zero" min={-5} max={5} step={1} defaultValue={[2, 2]} showValue />

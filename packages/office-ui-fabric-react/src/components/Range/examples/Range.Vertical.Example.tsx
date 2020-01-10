@@ -40,7 +40,7 @@ export const RangeVerticalExample: React.StatelessComponent = () => {
       <Range // prettier-ignore
         label="Formatted value"
         max={100}
-        valueFormat={([start, stop]: RangeValue) => `${start}% to ${stop}%`}
+        valueFormat={(edgeValue: number) => `${edgeValue}%`}
         showValue
         vertical
       />

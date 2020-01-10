@@ -79,6 +79,11 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
           </Label>
         )}
         <div className={classNames.container}>
+          {showValue && (
+            <Label className={classNames.valueLabel} disabled={disabled}>
+              {valueFormat ? valueFormat(start) : start}
+            </Label>
+          )}
           <div
             aria-valuenow={start}
             aria-valuemin={min}
@@ -123,7 +128,7 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
           </div>
           {showValue && (
             <Label className={classNames.valueLabel} disabled={disabled}>
-              {valueFormat ? valueFormat(value!) : value!.join(' : ')}
+              {valueFormat ? valueFormat(stop) : stop}
             </Label>
           )}
         </div>
