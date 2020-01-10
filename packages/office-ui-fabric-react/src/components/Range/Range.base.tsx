@@ -70,7 +70,7 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
       theme: theme!
     });
     const divButtonProps = buttonProps ? getNativeProps<React.HTMLAttributes<HTMLDivElement>>(buttonProps, divProperties) : undefined;
-
+    const formatValue = (v: number) => (valueFormat ? valueFormat(v) : v);
     return (
       <div className={classNames.root}>
         {label && (
@@ -81,7 +81,7 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
         <div className={classNames.container}>
           {showValue && (
             <Label className={classNames.valueLabel} disabled={disabled}>
-              {valueFormat ? valueFormat(start) : start}
+              {formatValue(vertical ? stop : start)}
             </Label>
           )}
           <div
@@ -128,7 +128,7 @@ export class RangeBase extends BaseComponent<IRangeProps, IRangeState> implement
           </div>
           {showValue && (
             <Label className={classNames.valueLabel} disabled={disabled}>
-              {valueFormat ? valueFormat(stop) : stop}
+              {formatValue(vertical ? start : stop)}
             </Label>
           )}
         </div>
